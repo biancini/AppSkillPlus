@@ -1,4 +1,4 @@
-package com.example.flutter_app
+package it.enaiplombardia.appskillplus
 
 import io.flutter.embedding.android.FlutterActivity
 

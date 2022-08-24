@@ -94,7 +94,10 @@ class OAuth {
 
         if (debugMode) _debug.info('Inspecting Url Before Loading: $url');
 
-        if (url.startsWith(redirectUri.toLowerCase())) {
+        if (url
+            .replaceAll('https://', '')
+            .replaceAll('http://', '')
+            .startsWith(redirectUri.toLowerCase())) {
           if (debugMode) _debug.info('Found Redirect Url: $url');
 
           var returnedData = _getQueryParams(url);
