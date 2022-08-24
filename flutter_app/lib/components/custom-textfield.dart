@@ -1,0 +1,81 @@
+import 'package:flutter/material.dart';
+import '../app_scale.dart';
+
+class CustomTextField extends StatefulWidget {
+  const CustomTextField(this.label,
+      {required Key key, required this.width, required this.initialValue})
+      : super(key: key);
+
+  final String initialValue;
+  final String label;
+  final double width;
+
+  @override
+  State createState() =>
+      // ignore: no_logic_in_create_state
+      _CustomTextFieldState(label, width: width, initialValue: initialValue);
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  _CustomTextFieldState(this.label,
+      {required this.width, required this.initialValue});
+
+  final String initialValue;
+  final String label;
+  double? width;
+  Color? labelColor;
+  FocusNode? focusNode;
+
+  @override
+  void initState() {
+    super.initState();
+
+    focusNode = FocusNode();
+
+    focusNode?.addListener(() => {changeLabelColor(focusNode!)});
+  }
+
+  @override
+  void dispose() {
+    focusNode?.dispose();
+    super.dispose();
+  }
+
+  void changeLabelColor(FocusNode focusNode) {
+    if (focusNode.hasFocus) {
+      setState(() => labelColor = Colors.black);
+    } else {
+      setState(() => labelColor = Colors.grey);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    AppScale scale = AppScale(context);
+
+    return Flexible(
+        child: Container(
+            margin: EdgeInsets.fromLTRB(0, scale.ofHeight(0.020), 0, 0),
+            child: FractionallySizedBox(
+                widthFactor: width ?? 0.8,
+                child: TextFormField(
+                  initialValue: initialValue,
+                  focusNode: focusNode,
+                  cursorColor: Colors.black,
+                  style: const TextStyle(
+                    color: Colors.black,
+                  ),
+                  decoration: InputDecoration(
+                      enabledBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
+                      focusedBorder: const UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      // hintText: label,
+                      labelText: label,
+                      labelStyle: TextStyle(
+                          color: labelColor, fontSize: scale.ofHeight(0.020))),
+                ))));
+  }
+}
