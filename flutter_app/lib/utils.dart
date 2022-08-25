@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
-
-import 'components/custom-button.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'components/custom_button.dart';
 import 'app_scale.dart';
 
 class Utils {
+  static const Color coloreEnaip = Color.fromARGB(255, 4, 116, 59);
+
+  static void saveLoginData(String data) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('authData', data);
+  }
+
+  static Future<String?> loadLoginData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getString('authData');
+  }
+
   static getButton(
       {required String text,
       required VoidCallback onPressed,
