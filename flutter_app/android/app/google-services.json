@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "207147710301",
+    "project_id": "appskillplus-83243",
+    "storage_bucket": "appskillplus-83243.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207147710301:android:2df1c43c897370f8bfdab4",
+        "android_client_info": {
+          "package_name": "it.enaiplombardia.appskillplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207147710301-cmomam46f2r0lrgm6qigi7tg6dr64714.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXflxJCoTXA7F2s7sl0tOXAxyFxG2ic2o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207147710301-cmomam46f2r0lrgm6qigi7tg6dr64714.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
